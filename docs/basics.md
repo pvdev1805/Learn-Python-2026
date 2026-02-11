@@ -286,4 +286,4 @@ print(y)  # Output: 10
 print(z)  # Output: 10.0
 ```
 
-**Note**: Refer to [hello.py](../src/basics/hello.py) for the complete code examples.
+**Note**: Refer to [day01_hello.py](../src/basics/day01_hello.py) for the complete code examples.

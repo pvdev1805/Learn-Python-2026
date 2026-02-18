@@ -1,5 +1,9 @@
 # Python Basics
 
+## Table of Contents
+
+1. [Day 1 - Hello World](#day-1---hello-world)
+
 ## Day 1 - Hello World
 
 ### 1. print()
@@ -287,3 +291,303 @@ print(z)  # Output: 10.0
 ```
 
 **Note**: Refer to [day01_hello.py](../src/basics/day01_hello.py) for the complete code examples.
+
+---
+
+## Day 2 - Input and Output
+
+### 1. input()
+
+The `input()` function is used to take input from the user. It reads a line of text from the console and returns it as a
+***string***. You can also provide a prompt message to the user by passing a string argument to the `input()` function.
+
+Syntax: **input(prompt)**
+
+- **prompt** : This is an optional parameter that specifies the message to display to the user before taking input. If
+  not provided, it will simply wait for the user to enter input without displaying any message.
+
+Example usage:
+
+```python
+name = input("Enter your name: ")  # Prompts the user to enter their name
+age = input("Enter your age: ")  # Prompts the user to enter their age
+print("Hello, " + name + "! You are " + age + " years old.")  # Output: Hello, [name]! You are [age] years old.
+```
+
+**Note**: Because the `input()` function always returns a string, if you want to convert the input to a different data
+type (e.g., integer or float), you can use type conversion functions like `int()` or `float()`.
+Example usage:
+
+```python
+age = int(input("Enter your age: "))  # Converts the input to an integer
+height = float(input("Enter your height in meters: "))  # Converts the input to a float
+print("You are " + str(age) + " years old and " + str(
+    height) + " meters tall.")  # Output: You are [age] years old and [height] meters tall.
+```
+
+### 2. Output Formatting
+
+Output formatting allows you to control how the output is displayed on the console. In Python, you can use formatted
+string literals (also known as f-strings) to format your output.
+Example usage:
+
+```python
+name = "Alice"
+age = 30
+height = 1.75
+print(
+    f"Hello, {name}! You are {age} years old and {height} meters tall.")  # Output: Hello, Alice! You are 30 years old and 1.75 meters tall.
+```
+
+### 3. If-Else Statements
+
+If-else statements are used to make decisions in your code based on certain conditions. The syntax for an if-else
+statement is as follows:
+
+```python
+if condition:
+# Code to execute if the condition is true
+else:
+# Code to execute if the condition is false
+```
+
+Example usage:
+
+```python
+age = int(input("Enter your age: "))
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.")
+```
+
+If-elif-else statements allow you to check multiple conditions in a sequence. The syntax for an if-elif-else statement
+is as follows:
+
+```python
+if condition1:
+# Code to execute if condition1 is true
+elif condition2:
+# Code to execute if condition2 is true
+else:
+# Code to execute if both condition1 and condition2 are false
+```
+
+Example usage:
+
+```python
+score = int(input("Enter your score: "))
+if score >= 90:
+    print("Grade: A")
+elif score >= 80:
+    print("Grade: B")
+elif score >= 70:
+    print("Grade: C")
+elif score >= 60:
+    print("Grade: D")
+else:
+    print("Grade: F")
+```
+
+### 4. Nested If Statements
+
+Nested if statements are if statements that are contained within another if statement. They allow you to check multiple
+conditions in a hierarchical manner. The syntax for nested if statements is as follows:
+
+```python
+if condition1:
+    if condition2:
+    # Code to execute if both condition1 and condition2 are true
+    else:
+# Code to execute if condition1 is true but condition2 is false
+else:
+# Code to execute if condition1 is false
+```
+
+Example usage:
+
+```python
+age = int(input("Enter your age: "))
+if age >= 18:
+    if age >= 65:
+        print("You are a senior citizen.")
+    else:
+        print("You are an adult.")
+else:
+    print("You are a minor.")
+```
+
+### 5. match-case Statements
+
+From Python 3.10 onwards, you can use match-case statements to perform pattern matching. The syntax for a match-case
+statement is as follows:
+
+```python
+match variable:
+    case pattern1:
+    # Code to execute if variable matches pattern1
+    case pattern2:
+    # Code to execute if variable matches pattern2
+    case _:
+    # Code to execute if variable does not match any pattern
+```
+
+Example usage:
+
+```python
+command = input("Enter a command: ")
+match command:
+    case "start":
+        print("Starting the program...")
+    case "stop":
+        print("Stopping the program...")
+    case _:
+        print("Unknown command.")
+```
+
+### 6. for Loops
+
+for loops are used to iterate over a sequence (such as a list, tuple, or string) or other iterable objects. The syntax
+for a for loop is as follows:
+
+```python
+for variable in sequence:
+# Code to execute for each item in the sequence 
+```
+
+Example usage:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)  # Output: apple, banana, cherry (each on a new line)
+```
+
+You can also use the `range()` function to generate a sequence of numbers for iteration. The syntax for the `range()`
+function is as follows:
+
+```python
+range(start, stop, step)
+```
+
+- **start** : The starting value of the sequence (inclusive). Default is 0.
+- **stop** : The ending value of the sequence (exclusive). This parameter is required.
+- **step** : The increment value between each number in the sequence. Default is 1.
+
+Example usage:
+
+```python
+for i in range(5):
+    print(i)  # Output: 0, 1, 2, 3, 4 (each on a new line)
+```
+
+### 7. while Loops
+
+while loops are used to execute a block of code repeatedly as long as a certain condition is true. The syntax for a
+while loop is as follows:
+
+```python
+while condition:
+# Code to execute while the condition is true
+```
+
+Example usage:
+
+```python
+count = 0
+while count < 5:
+    print(count)  # Output: 0, 1, 2, 3, 4 (each on a new line)
+    count += 1
+```
+
+### 8. break and continue Statements
+
+The `break` statement is used to exit a loop prematurely when a certain condition is met. The `continue` statement is
+used to skip the current iteration of a loop and move on to the next iteration.
+Example usage:
+
+```python
+for i in range(10):
+    if i == 5:
+        break  # Exit the loop when i is 5
+    print(i)  # Output: 0, 1, 2, 3, 4 (each on a new line)
+for i in range(10):
+    if i % 2 == 0:
+        continue  # Skip even numbers
+    print(i)  # Output: 1, 3, 5, 7, 9 (each on a new line)
+```
+
+### 9. pass Statement
+
+The `pass` statement is a placeholder that does nothing. It is used when you need to write a block of code but don't
+want to execute anything in that block. It is often used in situations where you want to define a function or a class
+but haven't implemented it yet.
+
+Example usage:
+
+```python
+def my_function():
+    pass  # This function does nothing for now
+
+
+class MyClass:
+    pass  # This class does nothing for now
+```
+
+### 10. Nested Loops
+
+Nested loops are loops that are contained within another loop. They allow you to iterate over multiple sequences or
+perform
+complex iterations. The syntax for nested loops is as follows:
+
+```python
+for variable1 in sequence1:
+    for variable2 in sequence2:
+# Code to execute for each combination of variable1 and variable2
+```
+
+Example usage:
+
+```python
+for i in range(3):
+    for j in range(2):
+        print(
+            f"i: {i}, j: {j}")  # Output: i: 0, j: 0; i: 0, j: 1; i: 1, j: 0; i: 1, j: 1; i: 2, j: 0; i: 2, j: 1 (each on a new line)
+```
+
+### 11. Ternary Operator
+
+The ternary operator is a shorthand way of writing an if-else statement. It allows you to assign a value to a variable
+based on a condition in a single line of code. The syntax for the ternary operator is as follows:
+
+```python
+variable = value_if_true if condition else value_if_false
+```
+
+Example usage:
+
+```python
+age = int(input("Enter your age: "))
+status = "Adult" if age >= 18 else "Minor"
+print(f"You are an {status}.")  # Output: You are an Adult. (if age >= 18) or You are a Minor. (if age < 18)
+```
+
+### 12. List Comprehensions
+
+List comprehensions provide a concise way to create lists. They consist of brackets containing an expression followed by
+a for clause, and optionally, one or more if clauses. The syntax for a list comprehension is as follows:
+
+```python
+[expression for item in iterable if condition]
+```
+
+Example usage:
+
+```python
+squares = [x ** 2 for x in range(10) if x % 2 == 0]
+print(squares)  # Output: [0, 4, 16, 36, 64] (squares of even numbers from 0 to 9)
+```
+
+**Note**: Refer to [day02_input_output.py](../src/basics/day02_input_output.py) for the complete code examples.
+
+---

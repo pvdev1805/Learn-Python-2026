@@ -591,3 +591,232 @@ print(squares)  # Output: [0, 4, 16, 36, 64] (squares of even numbers from 0 to 
 **Note**: Refer to [day02_input_output.py](../src/basics/day02_input_output.py) for the complete code examples.
 
 ---
+
+## Day 3 - Functions
+
+### 1. Function Definition
+
+Functions are reusable blocks of code that perform a specific task. They allow you to break down your code into smaller,
+more manageable pieces. In Python, you can define a function using the `def` keyword followed by the function name and
+parentheses. The syntax for defining a function is as follows:
+
+```python
+def function_name(parameters):
+# Code to execute when the function is called
+```
+
+Example usage:
+
+```python
+def greet(name):
+    print(f"Hello, {name}!")
+
+
+greet("Alice")  # Output: Hello, Alice!
+```
+
+### 2. Function Parameters
+
+Function parameters are the variables that are defined in the function definition and are used to pass values to
+thefunction when it is called. There are different types of function parameters in Python, including:
+
+- **Positional parameters**: These are the most common type of parameters. They are defined in the function definition
+  and
+  are passed to the function in the order they are defined.
+- **Keyword parameters**: These parameters are passed to the function using their names. They can be defined in any
+  order and are not required to be passed in the same order as they are defined.
+- **Default parameters**: These parameters have a default value assigned to them in the function definition. If a value
+  is not provided for a default parameter when the function is called, the default value will be used.
+- **Variable-length parameters**: These parameters allow you to pass a variable number of arguments to a function. They
+  are defined using an asterisk (*) for positional variable-length parameters and a double asterisk (**) for keyword
+  variable-length parameters.
+
+Example usage:
+
+```python
+def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+
+greet("Alice")  # Output: Hello, Alice!
+greet("Bob", greeting="Hi")  # Output: Hi, Bob!
+
+
+def sum_numbers(*args):
+    return sum(args)
+
+
+print(sum_numbers(1, 2, 3))  # Output: 6
+```
+
+### 3. Return Statement
+
+The `return` statement is used to exit a function and return a value to the caller. When a `return` statement is
+executed, the function terminates and the specified value is sent back to the caller. If no value is specified, the
+function will return `None` by default.
+Example usage:
+
+```python
+def add(a, b):
+    return a + b
+
+
+result = add(5, 3)
+print(result)  # Output: 8
+```
+
+### 4. Lambda Functions
+
+Lambda functions, also known as anonymous functions, are small, unnamed functions that can be defined in a single line
+of code. They are often used for short, simple functions that are not intended to be reused elsewhere in the code. The
+syntax for a lambda function is as follows:
+
+```python
+lambda parameters: expression
+```
+
+Example usage:
+
+```python
+add = lambda a, b: a + b
+result = add(5, 3)
+print(result)  # Output: 8
+```
+
+### 5. Recursive Functions
+
+Recursive functions are functions that call themselves in order to solve a problem. They typically have a base case that
+terminates the recursion and a recursive case that breaks the problem into smaller subproblems. The syntax for a
+recursive function is as follows:
+
+```python
+def recursive_function(parameters):
+    if base_case_condition:
+        return base_case_value
+    else:
+        return recursive_function(modified_parameters)
+```
+
+Example usage:
+
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+print(factorial(5))  # Output: 120
+```
+
+### 6. Docstrings
+
+Docstrings are string literals that are used to document a function, class, or module. They provide a way to describe
+the
+purpose and behavior of the code, as well as any parameters and return values. Docstrings are typically enclosed in
+triple quotes (''' or """) and are placed immediately after the function, class, or module definition.
+
+Example usage:
+
+```python
+def greet(name):
+    """This function takes a name as input and prints a greeting message.
+    Parameters:
+    name (str): The name of the person to greet.
+    Returns:
+    None
+    """
+    print(f"Hello, {name}!")
+```
+
+### 7. Function Annotations
+
+Function annotations are a way to provide additional information about the parameters and return value of a function.
+They
+are defined using a colon (:) after the parameter name and an arrow (->) before the return type. Function annotations do
+not affect the behavior of the function but can be used for documentation and type checking purposes.
+
+Example usage:
+
+```python
+def greet(name: str) -> None:
+    """This function takes a name as input and prints a greeting message.
+    Parameters:
+    name (str): The name of the person to greet.
+    Returns:
+    None
+    """
+    print(f"Hello, {name}!")
+```
+
+### 8. Global and Local Variables
+
+Global variables are variables that are defined outside of any function and can be accessed from anywhere in the code.
+Local variables are variables that are defined within a function and can only be accessed within that function. To
+modify a global variable from within a function, you can use the `global` keyword.
+
+Example usage:
+
+```python
+x = 10  # Global variable
+
+
+def modify_global():
+    global x  # Declare that we want to modify the global variable x
+    x += 5  # Modify the global variable
+
+
+modify_global()
+print(x)  # Output: 15
+```
+
+### 9. Variable Scope
+
+Variable scope refers to the region of the code where a variable is defined and can be accessed. In Python, there are
+four types of variable scope:
+
+- **Local scope**: Variables defined within a function are in the local scope and can only be accessed within that
+  function.
+- **Enclosing scope**: Variables defined in an enclosing function (a function that contains another function) are in the
+  enclosing scope and can be accessed by the inner function.
+- **Global scope**: Variables defined at the top level of a module or script are in the global scope and can be accessed
+  from anywhere in the code.
+- **Built-in scope**: This scope contains built-in functions and variables that are available in Python by default.
+
+Example usage:
+
+```python
+def outer_function():
+    x = 10  # Local variable in outer_function
+
+    def inner_function():
+        print(x)  # Accessing variable from enclosing scope
+
+    inner_function()
+
+
+outer_function()  # Output: 10
+```
+
+### 10. Higher-Order Functions
+
+Higher-order functions are functions that can take other functions as arguments or return functions as their result.
+They are a powerful feature of Python that allows for functional programming techniques. Some common higher-order
+functions include `map()`, `filter()`, and `reduce()`.
+
+Example usage:
+
+```python
+def square(x):
+    return x ** 2
+
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = map(square, numbers)  # Using map to apply the square function to each element in the numbers list
+print(list(squared_numbers))  # Output: [1, 4, 9, 16, 25]
+```
+
+**Note**: Refer to [day03_functions.py](../src/basics/day03_function.py) for the complete code examples.
+
+___
